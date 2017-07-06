@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/mm"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_second"
+        style="@style/ww"
+        android:background="@drawable/btn_background_select"
+        android:text="下一页" />
+
+    <LinearLayout
+        style="@style/mm"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/fl_second1"
+            style="@style/mm"
+            android:layout_weight="1"
+            android:background="#0f9" />
+
+        <FrameLayout
+            android:id="@+id/fl_second2"
+            style="@style/mm"
+            android:layout_weight="3"
+            android:background="#ff0f" />
+    </LinearLayout>
+
+
+</LinearLayout>

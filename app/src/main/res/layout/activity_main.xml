@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_select"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="按钮1" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_select"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="按钮2" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_select"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="按钮3" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_main"
+        style="@style/ww"
+        android:text="下一页"
+        android:background="@color/btn_bg"/>
+
+    <EditText
+        android:id="@+id/et_main"
+        style="@style/mw"
+        android:hint="First" />
+
+    <ListView
+        android:id="@+id/lv_main"
+        style="@style/mm" />
+</LinearLayout>

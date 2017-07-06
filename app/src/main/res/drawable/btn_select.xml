@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/btn_background_normal" />
+    <!--state_pressed=true,表示按下，一般用于button，图形设置于android:background-->
+    <item android:drawable="@drawable/btn_background_select" android:state_pressed="true" />
+    <!--state_checked=true,表示勾选，一般用于RadioButton,CheckBox,图形设置于android:drawableLeft-->
+    <!--state_selected=true,表示选中，一般用于RadioButton，CheckBox,图形设置于android:background-->
+    <!--state_focused=true,表示获取焦点，一般用于EditText，图形设置于android:background-->>
+    <item android:drawable="@drawable/btn_background_select" android:state_focused="true" />
+</selector>

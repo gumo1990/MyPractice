@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MyDemo</string>
+    <string name="quake_feed">
+        http://earthquake.usgs.gov/eqcenter/catalogs/1day-M2.5.xml
+    </string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--填充背景-->
+    <solid android:color="@color/btn_bg" />
+    <!--边框-->
+    <stroke
+        android:width="1px"
+        android:color="@color/btn_stroke" />
+    <!--倒角-->
+    <corners
+        android:bottomLeftRadius="2dp"
+        android:bottomRightRadius="2dp"
+        android:topLeftRadius="2dp"
+        android:topRightRadius="2dp" />
+    <!--距离上下左右边距-->
+    <padding
+        android:bottom="5dp"
+        android:left="8dp"
+        android:right="8dp"
+        android:top="5dp" />
+    <!--gradien渐变色-->
+</shape>
