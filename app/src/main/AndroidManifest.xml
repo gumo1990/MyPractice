@@ -23,11 +23,13 @@
             android:name=".SecondActivity"
             android:configChanges="keyboardHidden|orientation"
             android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ThreeActivity"
             android:configChanges="keyboardHidden|orientation"
             android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
             android:screenOrientation="portrait" />
     </application>
 

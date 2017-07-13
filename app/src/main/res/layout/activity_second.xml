@@ -5,7 +5,9 @@
 
     <Button
         android:id="@+id/btn_second"
-        style="@style/ww"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
         android:background="@drawable/btn_background_select"
         android:text="下一页" />
 

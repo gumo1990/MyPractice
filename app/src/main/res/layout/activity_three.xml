@@ -6,11 +6,10 @@
 
     <Button
         android:id="@+id/btn_three"
-        style="@style/ww"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
         android:text="下一页"
         android:background="@color/btn_bg"/>
 
-    <fragment android:name="Fragments.EarthquakeListFragment"
-        android:id="@+id/elf_three"
-        style="@style/mm"/>
 </LinearLayout>
