@@ -21,7 +21,6 @@ import Utils.StringUtils;
  * EditText添加到一个listView中
  */
 public class MainActivity extends Activity {
-
     Button btn_main;
     EditText et_main;
     ListView lv_main;
