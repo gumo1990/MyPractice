@@ -1,24 +1,28 @@
 package com.example.user.mydemo;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
-import Fragments.MyAddFragment;
-import Fragments.MyDelateFragment;
+import java.util.ArrayList;
+
+import Utils.ListScrollView;
 
 /**
  * Created by whq on 17/6/19 0019.
+ * Scrollview嵌套Listview只显示一行，两种办法，
+ * 一种自定义listview，重写onMeasure方法，(listview充满屏幕)
+ * 第二种listview写死高度(会产生滑动冲突--listview无法滑动)
  */
 
 public class SecondActivity extends Activity {
-    FragmentManager manager;
-    FragmentTransaction transaction;
+
     Button btn_second;
+    ListScrollView listView;
+    ListScrollView lv_ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,7 @@ public class SecondActivity extends Activity {
     }
 
     private void initView() {
-        manager = getFragmentManager();
-        transaction = manager.beginTransaction();
+
         btn_second = (Button) findViewById(R.id.btn_second);
         btn_second.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,17 +41,23 @@ public class SecondActivity extends Activity {
                 startActivity(new Intent(SecondActivity.this, ThreeActivity.class));
             }
         });
+        listView = (ListScrollView) findViewById(R.id.lv_second);
+        lv_ll = (ListScrollView) findViewById(R.id.lv_ll);
 
     }
 
     private void initData() {
-        //添加Fragment
-        transaction.add(R.id.fl_second1, new MyAddFragment());
-        //替换Fragment
-        transaction.replace(R.id.fl_second2, new MyDelateFragment());
-        transaction.commit();
+        ArrayList<String> strings = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {
+            strings.add("" + i);
+        }
+        ArrayAdapter adapter = new ArrayAdapter(SecondActivity.this,
+                R.layout.support_simple_spinner_dropdown_item, strings);
 
+        listView.setAdapter(adapter);
+        lv_ll.setAdapter(adapter);
 
     }
+
 
 }

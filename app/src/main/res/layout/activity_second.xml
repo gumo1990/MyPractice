@@ -9,24 +9,52 @@
         android:layout_height="30dp"
         android:layout_margin="5dp"
         android:background="@drawable/btn_background_select"
-        android:text="下一页" />
+        android:text="第二页" />
 
-    <LinearLayout
-        style="@style/mm"
-        android:orientation="horizontal">
 
-        <FrameLayout
-            android:id="@+id/fl_second1"
-            style="@style/mm"
-            android:layout_weight="1"
-            android:background="#0f9" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/fl_second2"
-            style="@style/mm"
-            android:layout_weight="3"
-            android:background="#ff0f" />
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <Utils.ListScrollView
+                android:id="@+id/lv_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:layout_height="wrap_content"
+                android:background="#000"
+                android:src="@mipmap/baike_nodata"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="222" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3333333333" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="444444" />
+
+            <Utils.ListScrollView
+                android:id="@+id/lv_second"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
