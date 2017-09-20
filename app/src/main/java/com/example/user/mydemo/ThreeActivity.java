@@ -1,7 +1,10 @@
 package com.example.user.mydemo;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
@@ -20,7 +23,6 @@ import Utils.MyListView;
 public class ThreeActivity extends Activity {
     Button btn_three;
     MyListView lv_three;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,12 @@ public class ThreeActivity extends Activity {
     private void initView() {
         btn_three = (Button) findViewById(R.id.btn_three);
         lv_three = (MyListView) findViewById(R.id.lv_three);
+        btn_three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ThreeActivity.this,FourActivity.class));
+            }
+        });
     }
 
     private void initData() {

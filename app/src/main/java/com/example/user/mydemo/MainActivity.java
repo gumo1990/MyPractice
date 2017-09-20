@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -12,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,6 +35,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(savedInstanceState != null){
+            Log.d("whq", "onCreate: "+savedInstanceState.getString("data_key"));
+        }
         initView();
         initData();
         onClickListener();
@@ -68,7 +75,7 @@ public class MainActivity extends Activity {
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+                startActivity(new Intent(MainActivity.this, FiveActivity.class));
             }
         });
     }
@@ -129,5 +136,44 @@ public class MainActivity extends Activity {
             }
         }
         return false;
+    }
+
+    /* 添加菜单
+   @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.add_item:
+                Toast.makeText(MainActivity.this,"添加菜单",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.remove_item:
+                Toast.makeText(MainActivity.this."删除菜单", Toast.LENGTH_LONG).show();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }*/
+    /**
+     * 物理返回按钮点击事件
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    /**
+     * 保存临时数据
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String s = "11111";
+        outState.putString("data_key",s);
     }
 }

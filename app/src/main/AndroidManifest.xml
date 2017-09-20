@@ -31,6 +31,18 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden|stateUnchanged"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".FourActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FiveActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -6,4 +6,5 @@
     <color name="btn_bg">#f88</color>
     <color name="btn_stroke">#bbbbbb</color>
     <color name="btn_normal">#ffffff</color>
+    <color name="white">#ffffffff</color>
 </resources>
