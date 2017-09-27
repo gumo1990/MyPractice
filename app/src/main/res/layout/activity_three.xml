@@ -6,15 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btn_three"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_margin="5dp"
-            android:background="@color/btn_bg"
-            android:text="第三页" />
+        android:orientation="vertical"
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -24,7 +17,7 @@
             android:padding="8dp"
             android:src="@mipmap/baike_nodata" />
 
-        <com.example.user.mydemo.Utils.MyListView
+        <com.example.user.mydemo.utils.MyListView
             android:id="@+id/lv_three"
             android:layout_width="match_parent"
             android:layout_height="200dp" />

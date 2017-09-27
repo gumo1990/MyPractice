@@ -1,3 +1,5 @@
+package com.example.user.mydemo;
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;

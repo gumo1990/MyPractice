@@ -1,4 +1,4 @@
-package com.example.user.mydemo.Adapters;
+package com.example.user.mydemo.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -83,6 +83,7 @@ public class FiveAdapter extends RecyclerView.Adapter<FiveAdapter.ItemViewHolder
             btn_select = (Button) itemView.findViewById(R.id.btn_five_item);
         }
     }
+
     public void remove() {
         if (listDatas.size() > 0) {
             for (int i = 0; i < listDatas.size(); i++) {
@@ -92,11 +93,11 @@ public class FiveAdapter extends RecyclerView.Adapter<FiveAdapter.ItemViewHolder
 
             }
         }
-        if(listDatas != null){
+        if (listDatas != null) {
             listDatas = null;
         }
         notifyDataSetChanged();
-        if(isclick != null){
+        if (isclick != null) {
             isclick = null;
             isclick = new boolean[mListdata.size()];
         }

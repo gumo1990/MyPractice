@@ -1,42 +1,57 @@
-package com.example.user.mydemo.Activity;
+package com.example.user.mydemo.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
-import com.example.user.mydemo.Adapters.TextAdapter;
-import com.example.user.mydemo.Beans.Fruits;
+import com.example.user.mydemo.BaseActivity;
 import com.example.user.mydemo.R;
 
-import java.util.ArrayList;
-import java.util.List;
+import butterknife.OnClick;
 
 /**
  * Created by whq on 2017/8/15.
  */
 
-public class FourActivity extends Activity {
+public class FourActivity extends BaseActivity implements View.OnClickListener {
 
-    private List<Fruits> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_four);
+        setView(R.layout.activity_four, 1);
+        initView();
         initData();
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.ry_four);
+        registListener();
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+    }
 
-        TextAdapter adapter = new TextAdapter(list);
-        recyclerView.setAdapter(adapter);
+    private void initView() {
+        setTitle("哈哈");
     }
 
     private void initData() {
-        for(int i=0; i<200; i++){
-            list.add(new Fruits("苹果"+i));
+
+    }
+
+    private void registListener() {
+
+    }
+
+    @OnClick({R.id.tv_four, R.id.btn_top_back})
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_four:
+                Toast.makeText(mContext, "hhhhhhhhh", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.btn_top_back:
+                finish();
+                break;
+            default:
+                break;
         }
     }
+
+
 }

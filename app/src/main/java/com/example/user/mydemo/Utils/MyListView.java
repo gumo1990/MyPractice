@@ -1,4 +1,4 @@
-package com.example.user.mydemo.Utils;
+package com.example.user.mydemo.utils;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import android.widget.ListView;
 
 /**
  * Created by whq on 2017/8/11.
- *  解决ScrollView嵌套Listview滑动冲突(Listview高度写死)
+ * 解决ScrollView嵌套Listview滑动冲突(Listview高度写死)
  */
 
 public class MyListView extends ListView {

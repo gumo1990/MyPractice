@@ -1,4 +1,4 @@
-package com.example.user.mydemo.Utils;
+package com.example.user.mydemo.utils;
 
 /**
  * Created by whq on 17/7/6 0006.
@@ -7,6 +7,7 @@ package com.example.user.mydemo.Utils;
 public class StringUtils {
     /**
      * 判断不为空
+     *
      * @param text
      * @return
      */

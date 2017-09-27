@@ -1,7 +1,7 @@
-package com.example.user.mydemo.Activity;
+package com.example.user.mydemo.activity;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -9,29 +9,27 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.user.mydemo.BaseActivity;
+import com.example.user.mydemo.MyApplication;
 import com.example.user.mydemo.R;
-import com.example.user.mydemo.Utils.StringUtils;
+import com.example.user.mydemo.utils.StringUtils;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import butterknife.OnClick;
 
 /**
  * EditText添加到一个listView中
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     EditText et_main;
     ListView lv_main;
     ArrayList<String> todoItems = new ArrayList<>();
     ArrayAdapter<String> aa;
-    private Unbinder  unbinder;
     /**
      * compile 'com.jakewharton:butterknife:8.5.1'
      * annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'--添加注解
@@ -40,19 +38,17 @@ public class MainActivity extends Activity {
      * 销毁时候要解绑
      * unbinder.unbind();
      */
-    @BindView(R.id.btn_main)
-    Button btn_main;
 
-    @BindView(R.id.tv_main)
-    TextView tv_main;
+
+    // 定义一个变量，来标识是否退出
+    private static boolean isExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        unbinder = ButterKnife.bind(this);
-        if(savedInstanceState != null){
-            Log.d("whq", "onCreate: "+savedInstanceState.getString("data_key"));
+        setView(R.layout.activity_main, 1);//0-无头，1-有头
+        if (savedInstanceState != null) {
+            Log.d("whq", "onCreate: " + savedInstanceState.getString("data_key"));
         }
         initView();
         initData();
@@ -63,10 +59,11 @@ public class MainActivity extends Activity {
         et_main = (EditText) findViewById(R.id.et_main);
         lv_main = (ListView) findViewById(R.id.lv_main);
         aa = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, todoItems);
-        tv_main.setText("1111");
     }
 
     private void initData() {
+        setTitle("MainActivity");
+        hideBack(true);
         lv_main.setAdapter(aa);
     }
 
@@ -88,12 +85,22 @@ public class MainActivity extends Activity {
                 return false;
             }
         });
-        /*btn_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, SecondActivity.class));
-            }
-        });*/
+
+    }
+
+    @OnClick({R.id.rb_one, R.id.tv_top_right})
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.rb_one:
+                Toast.makeText(mContext, "点击了按钮一", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_top_right:
+                startActivity(new Intent(mContext, SecondActivity.class));
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -160,6 +167,32 @@ public class MainActivity extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        //   Toast.makeText(mContext, "00000000000", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            Toast.makeText(mContext, R.string.text_exit, Toast.LENGTH_SHORT).show();
+            MyApplication.getHandler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    isExit = true;
+                }
+            }, 2000);
+
+        } else {
+            finish();
+        }
     }
 
     /**
@@ -169,6 +202,8 @@ public class MainActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         String s = "11111";
-        outState.putString("data_key",s);
+        outState.putString("data_key", s);
     }
+
+
 }

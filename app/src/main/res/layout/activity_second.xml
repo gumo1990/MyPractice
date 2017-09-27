@@ -3,14 +3,6 @@
     style="@style/mm"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_second"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/btn_background_select"
-        android:text="第二页" />
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,9 +11,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
 
-            <com.example.user.mydemo.Utils.ListScrollView
+            <com.example.user.mydemo.utils.ListScrollView
                 android:id="@+id/lv_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -49,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="444444" />
 
-            <com.example.user.mydemo.Utils.ListScrollView
+            <com.example.user.mydemo.utils.ListScrollView
                 android:id="@+id/lv_second"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

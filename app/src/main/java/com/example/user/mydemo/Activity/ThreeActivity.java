@@ -1,16 +1,18 @@
-package com.example.user.mydemo.Activity;
+package com.example.user.mydemo.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 
+import com.example.user.mydemo.BaseActivity;
 import com.example.user.mydemo.R;
-import com.example.user.mydemo.Utils.MyListView;
+import com.example.user.mydemo.utils.MyListView;
 
 import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by whq on 17/6/26 0026.
@@ -20,29 +22,27 @@ import java.util.ArrayList;
  * 第三种，自定义listview设置不让父控件拦截
  */
 
-public class ThreeActivity extends Activity {
-    Button btn_three;
+public class ThreeActivity extends BaseActivity implements View.OnClickListener {
+
+
+    @BindView(R.id.lv_three)
     MyListView lv_three;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_three);
+        setView(R.layout.activity_three, 1);
         initView();
         initData();
     }
 
     private void initView() {
-        btn_three = (Button) findViewById(R.id.btn_three);
-        lv_three = (MyListView) findViewById(R.id.lv_three);
-        btn_three.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ThreeActivity.this,FourActivity.class));
-            }
-        });
+
+
     }
 
     private void initData() {
+        setTitle("ThreeActivity");
        /* SharedPreferences sharedPreferences = getSharedPreferences("hh",Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("first", false);
@@ -72,5 +72,20 @@ public class ThreeActivity extends Activity {
             }
         });*/
 
+    }
+
+    @OnClick({R.id.btn_top_back, R.id.tv_top_right})
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_top_back:
+                finish();
+                break;
+            case R.id.tv_top_right:
+                startActivity(new Intent(ThreeActivity.this, FourActivity.class));
+                break;
+            default:
+                break;
+        }
     }
 }

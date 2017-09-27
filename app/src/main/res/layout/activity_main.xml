@@ -9,49 +9,45 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/rb_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/btn_select"
             android:button="@null"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="按钮1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
             android:background="@drawable/btn_select"
             android:button="@null"
-            android:layout_marginLeft="5dp"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="按钮2" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
             android:background="@drawable/btn_select"
             android:button="@null"
-            android:layout_marginLeft="5dp"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="按钮3" />
     </RadioGroup>
-
-    <Button
-        android:id="@+id/btn_main"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:text="下一页"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/btn_background_select"/>
 
     <EditText
         android:id="@+id/et_main"
         style="@style/mw"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:hint="First" />
 
     <ListView

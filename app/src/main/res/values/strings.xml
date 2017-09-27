@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">MyDemo</string>
+    <string name="app_name">例子</string>
     <string name="quake_feed">
         http://earthquake.usgs.gov/eqcenter/catalogs/1day-M2.5.xml
     </string>
+    <string name="text_exit">再按一次退出程序</string>
 </resources>

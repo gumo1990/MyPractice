@@ -1,4 +1,4 @@
-package com.example.user.mydemo.Activity;
+package com.example.user.mydemo.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.user.mydemo.Adapters.FiveAdapter;
 import com.example.user.mydemo.R;
+import com.example.user.mydemo.adapters.FiveAdapter;
 
 import java.util.ArrayList;
 
@@ -60,7 +60,7 @@ public class FiveActivity extends Activity {
             @Override
             public void onClick(View v) {
                 adapter.remove();
-                Log.d("whq","--------activity"+listdata.size());
+                Log.d("whq", "--------activity" + listdata.size());
             }
         });
     }
