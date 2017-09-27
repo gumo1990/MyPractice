@@ -1,13 +1,10 @@
-package com.example.user.mydemo;
+package com.example.user.mydemo.Activity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -15,26 +12,45 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import com.example.user.mydemo.R;
+import com.example.user.mydemo.Utils.StringUtils;
 
 import java.util.ArrayList;
 
-import Utils.StringUtils;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * EditText添加到一个listView中
  */
 public class MainActivity extends Activity {
-    Button btn_main;
     EditText et_main;
     ListView lv_main;
     ArrayList<String> todoItems = new ArrayList<>();
     ArrayAdapter<String> aa;
+    private Unbinder  unbinder;
+    /**
+     * compile 'com.jakewharton:butterknife:8.5.1'
+     * annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'--添加注解
+     * 在onCreate中先绑定
+     * unbinder = ButterKnife.bind(this);
+     * 销毁时候要解绑
+     * unbinder.unbind();
+     */
+    @BindView(R.id.btn_main)
+    Button btn_main;
+
+    @BindView(R.id.tv_main)
+    TextView tv_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        unbinder = ButterKnife.bind(this);
         if(savedInstanceState != null){
             Log.d("whq", "onCreate: "+savedInstanceState.getString("data_key"));
         }
@@ -44,10 +60,10 @@ public class MainActivity extends Activity {
     }
 
     private void initView() {
-        btn_main = (Button) findViewById(R.id.btn_main);
         et_main = (EditText) findViewById(R.id.et_main);
         lv_main = (ListView) findViewById(R.id.lv_main);
         aa = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, todoItems);
+        tv_main.setText("1111");
     }
 
     private void initData() {
@@ -72,18 +88,18 @@ public class MainActivity extends Activity {
                 return false;
             }
         });
-        btn_main.setOnClickListener(new View.OnClickListener() {
+        /*btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FiveActivity.class));
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
             }
-        });
+        });*/
     }
 
     /**
      * 点击其他地方隐藏软键盘
      *
-     * @param event
+     * @param
      * @return
      */
     @Override
@@ -138,27 +154,6 @@ public class MainActivity extends Activity {
         return false;
     }
 
-    /* 添加菜单
-   @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.add_item:
-                Toast.makeText(MainActivity.this,"添加菜单",Toast.LENGTH_LONG).show();
-                break;
-            case R.id.remove_item:
-                Toast.makeText(MainActivity.this."删除菜单", Toast.LENGTH_LONG).show();
-                break;
-            default:
-                break;
-        }
-        return true;
-    }*/
     /**
      * 物理返回按钮点击事件
      */

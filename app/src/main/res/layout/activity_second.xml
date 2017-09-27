@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Utils.ListScrollView
+            <com.example.user.mydemo.Utils.ListScrollView
                 android:id="@+id/lv_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:text="444444" />
 
-            <Utils.ListScrollView
+            <com.example.user.mydemo.Utils.ListScrollView
                 android:id="@+id/lv_second"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

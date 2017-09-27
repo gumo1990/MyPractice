@@ -1,6 +1,4 @@
-package Beans;
-
-import android.widget.TextView;
+package com.example.user.mydemo.Beans;
 
 /**
  * Created by whq on 2017/8/15.

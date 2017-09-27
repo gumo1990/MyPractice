@@ -1,8 +1,4 @@
-package Utils;
-
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+package com.example.user.mydemo.Utils;
 
 /**
  * Created by whq on 17/7/6 0006.

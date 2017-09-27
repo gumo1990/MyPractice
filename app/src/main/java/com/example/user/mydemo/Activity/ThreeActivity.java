@@ -1,16 +1,16 @@
-package com.example.user.mydemo;
+package com.example.user.mydemo.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
-import java.util.ArrayList;
+import com.example.user.mydemo.R;
+import com.example.user.mydemo.Utils.MyListView;
 
-import Utils.MyListView;
+import java.util.ArrayList;
 
 /**
  * Created by whq on 17/6/26 0026.

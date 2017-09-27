@@ -1,4 +1,4 @@
-package Utils;
+package com.example.user.mydemo.Utils;
 
 import android.content.Context;
 import android.util.AttributeSet;

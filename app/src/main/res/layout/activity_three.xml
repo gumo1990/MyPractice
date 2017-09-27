@@ -24,7 +24,7 @@
             android:padding="8dp"
             android:src="@mipmap/baike_nodata" />
 
-        <Utils.MyListView
+        <com.example.user.mydemo.Utils.MyListView
             android:id="@+id/lv_three"
             android:layout_width="match_parent"
             android:layout_height="200dp" />

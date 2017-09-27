@@ -1,15 +1,16 @@
-package com.example.user.mydemo;
+package com.example.user.mydemo.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.user.mydemo.Adapters.TextAdapter;
+import com.example.user.mydemo.Beans.Fruits;
+import com.example.user.mydemo.R;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import Adapters.TextAdapter;
-import Beans.Fruits;
 
 /**
  * Created by whq on 2017/8/15.

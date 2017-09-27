@@ -1,8 +1,6 @@
-package Views;
+package com.example.user.mydemo.Views;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.icu.util.Measure;
 import android.widget.TextView;
 
 /**

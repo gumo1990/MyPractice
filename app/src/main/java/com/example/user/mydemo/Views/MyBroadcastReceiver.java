@@ -1,4 +1,4 @@
-package Views;
+package com.example.user.mydemo.Views;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

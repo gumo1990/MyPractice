@@ -1,4 +1,4 @@
-package com.example.user.mydemo;
+package com.example.user.mydemo.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,9 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.user.mydemo.Adapters.FiveAdapter;
+import com.example.user.mydemo.R;
 
-import Adapters.FiveAdapter;
+import java.util.ArrayList;
 
 /**
  * Created by whq on 2017/8/30.

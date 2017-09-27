@@ -1,17 +1,13 @@
-package Adapters;
+package com.example.user.mydemo.Adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.user.mydemo.R;
 
 import java.util.List;
 
-import Beans.Fruits;
+import com.example.user.mydemo.Beans.Fruits;
 
 /**
  * Created by whq on 2017/8/15.

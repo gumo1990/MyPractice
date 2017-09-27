@@ -1,4 +1,4 @@
-package Adapters;
+package com.example.user.mydemo.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
