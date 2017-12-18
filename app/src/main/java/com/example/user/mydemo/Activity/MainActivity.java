@@ -2,6 +2,7 @@ package com.example.user.mydemo.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,6 +25,9 @@ import butterknife.OnClick;
 
 /**
  * EditText添加到一个listView中
+ * 1.Radiobutton选中事件
+ * 2.点击EditText其他位置，软键盘隐藏
+ * 3.将EditText内容添加到listview
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     EditText et_main;
@@ -88,12 +92,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    @OnClick({R.id.rb_one, R.id.tv_top_right})
+    @OnClick({R.id.rb_one, R.id.tv_top_right, R.id.rb_second, R.id.rb_three})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rb_one:
-                Toast.makeText(mContext, "点击了按钮一", Toast.LENGTH_SHORT).show();
+                StringUtils.toast(mContext,"跳转第四页");
+                startActivity(new Intent(mContext,FourActivity.class));
+                break;
+            case R.id.rb_second:
+                startActivity(new Intent(mContext,FiveActivity.class));
+                StringUtils.centerToast(mContext,"跳转第五页");
+                break;
+            case R.id.rb_three:
+                startActivity(new Intent(mContext, SixActivity.class));
+                StringUtils.centerToast(mContext,"跳转第六页");
                 break;
             case R.id.tv_top_right:
                 startActivity(new Intent(mContext, SecondActivity.class));
@@ -113,9 +126,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             View view = getCurrentFocus();
-            if (isShouldHideInput(view, ev)) {
-                //返回true，非EditText
-                hintSoftKeyboard();
+            if (StringUtils.isShouldHideInput(view, ev)) {
+                //是否点击的是EditText。返回true，非EditText
+                StringUtils.hintSoftKeyboard(MainActivity.this);
             }
             return super.dispatchTouchEvent(ev);
         }
@@ -125,41 +138,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         return onTouchEvent(ev);
     }
 
-    /**
-     * 关闭软键盘
-     */
-
-    public void hintSoftKeyboard() {
-        View view = getWindow().peekDecorView();
-        if (view != null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
-
-    /**
-     * 是否点击的是EditText
-     */
-    private boolean isShouldHideInput(View view, MotionEvent event) {
-        if (view != null && (view instanceof EditText)) {
-            int[] leftTop = {0, 0};
-            //获取输入框当前的location
-            view.getLocationInWindow(leftTop);
-            ;
-            int left = leftTop[0];
-            int top = leftTop[1];
-            int bottom = top + view.getHeight();
-            int right = left + view.getWidth();
-            if (event.getX() > left && event.getX() < right && event.getY() > top
-                    && event.getY() < bottom) {
-                //点击的是输入框，保留EditText的事件
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }
 
     /**
      * 物理返回按钮点击事件

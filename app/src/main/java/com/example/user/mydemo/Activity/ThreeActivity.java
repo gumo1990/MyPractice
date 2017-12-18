@@ -16,7 +16,7 @@ import butterknife.OnClick;
 
 /**
  * Created by whq on 17/6/26 0026.
- * ScrollView嵌套Listview（高度写死）,导致滑动冲突
+ * ScrollView嵌套Listview（高度写死）,导致滑动冲突的解决
  * 第一种，给listview设置监听事件，滑动时候父层不拦截
  * 第二种，自定义scrollview，不拦截事件--最外层是自定义ScrollView
  * 第三种，自定义listview设置不让父控件拦截

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.user.mydemo.views.CountdownView
+        android:id="@+id/cv_countdownViewTest2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:timeBgDivisionLineSize="1dp"
+        app:timeBgSize="50dp"
+        app:isShowDay="false"
+        app:isShowHour="true"
+        app:isShowMinute="true"
+        app:isShowSecond="true"
+        app:isShowMillisecond="false"
+        app:suffixGravity="center"
+        app:suffixTextColor="#000000"
+        app:suffixTextSize="30sp"
+        app:timeTextColor="#FFFFFF"
+        app:timeTextSize="30sp"
+        app:isHideTimeBackground="false"
+        app:timeBgRadius="3dp" />
+</LinearLayout>

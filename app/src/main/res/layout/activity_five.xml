@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcv_fivie"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="40dp"/>
-
-    <LinearLayout
-        android:id="@+id/ll_bottom"
+    <TextView
+        android:id="@+id/tv_five"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="8dp"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:text="hhhhh" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="已选:   " />
+    <TextView
+        android:id="@+id/tv_five2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="3333333" />
 
-        <TextView
-            android:id="@+id/tv_select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="loadIamge"
+        android:text="Load Image" />
 
-        <Button
-            android:id="@+id/btn_select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="全选 " />
-
-        <Button
-            android:id="@+id/btn_delect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="删除" />
-    </LinearLayout>
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/five_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
