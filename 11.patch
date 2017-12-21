@@ -1,0 +1,547 @@
+Index: app/src/main/res/layout/activity_four.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_four.xml	(revision )
++++ app/src/main/res/layout/activity_four.xml	(revision )
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++
++    <android.support.v7.widget.RecyclerView
++        android:id="@+id/ry_four"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent" />
++</LinearLayout>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 4f645c60f05f5fc37e21ba51b43d44fd9498c306)
++++ app/build.gradle	(revision )
+@@ -26,4 +26,5 @@
+     })
+     compile 'com.android.support:appcompat-v7:25.0.1'
+     testCompile 'junit:junit:4.12'
++    compile'com.android.support:recyclerview-v7:25.0.1'
+ }
+Index: app/src/main/java/com/example/user/mydemo/ThreeActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/user/mydemo/ThreeActivity.java	(revision 4f645c60f05f5fc37e21ba51b43d44fd9498c306)
++++ app/src/main/java/com/example/user/mydemo/ThreeActivity.java	(revision )
+@@ -1,7 +1,10 @@
+ package com.example.user.mydemo;
+ 
+ import android.app.Activity;
++import android.content.Intent;
++import android.net.Uri;
+ import android.os.Bundle;
++import android.view.View;
+ import android.widget.ArrayAdapter;
+ import android.widget.Button;
+ 
+@@ -20,7 +23,6 @@
+ public class ThreeActivity extends Activity {
+     Button btn_three;
+     MyListView lv_three;
+-
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+@@ -32,6 +34,12 @@
+     private void initView() {
+         btn_three = (Button) findViewById(R.id.btn_three);
+         lv_three = (MyListView) findViewById(R.id.lv_three);
++        btn_three.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(ThreeActivity.this,FourActivity.class));
++            }
++        });
+     }
+ 
+     private void initData() {
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(revision 4f645c60f05f5fc37e21ba51b43d44fd9498c306)
++++ app/src/main/res/values/styles.xml	(revision )
+@@ -28,4 +28,26 @@
+         <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">match_parent</item>
+     </style>
++    <!-- 租房举报对话框样式 -->
++    <style name="zf_report_dialog" parent="@android:style/Theme.Dialog">
++    <item name="android:windowBackground">@color/white</item>
++    <item name="android:windowNoTitle">true</item></style>
++    <style name="MyDialogStyle">
++        <!--设置dialog的背景-->
++        <item name="android:windowBackground">@android:color/transparent</item>
++        <!--设置Dialog的windowFrame框为无-->
++        <item name="android:windowFrame">@null</item>
++        <!--设置无标题-->
++        <item name="android:windowNoTitle">true</item>
++        <!--是否浮现在activity之上-->
++        <item name="android:windowIsFloating">true</item>
++        <!--是否半透明-->
++        <item name="android:windowIsTranslucent">true</item>
++        <!--设置窗口内容不覆盖-->
++        <item name="android:windowContentOverlay">@null</item>
++        <!--设置动画，在这里使用让它继承系统的Animation.Dialog-->
++        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
++        <!--背景是否模糊显示-->
++        <item name="android:backgroundDimEnabled">true</item>
++    </style>
+ </resources>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 4f645c60f05f5fc37e21ba51b43d44fd9498c306)
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -31,6 +31,18 @@
+             android:hardwareAccelerated="true"
+             android:windowSoftInputMode="stateHidden|stateUnchanged"
+             android:screenOrientation="portrait" />
++        <activity
++            android:name=".FourActivity"
++            android:configChanges="keyboardHidden|orientation"
++            android:hardwareAccelerated="true"
++            android:windowSoftInputMode="stateHidden|stateUnchanged"
++            android:screenOrientation="portrait" />
++        <activity
++            android:name=".FiveActivity"
++            android:configChanges="keyboardHidden|orientation"
++            android:hardwareAccelerated="true"
++            android:windowSoftInputMode="stateHidden|stateUnchanged"
++            android:screenOrientation="portrait" />
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
+Index: app/src/main/java/com/example/user/mydemo/FiveActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/user/mydemo/FiveActivity.java	(revision )
++++ app/src/main/java/com/example/user/mydemo/FiveActivity.java	(revision )
+@@ -0,0 +1,66 @@
++package com.example.user.mydemo;
++
++import android.app.Activity;
++import android.os.Bundle;
++import android.support.v7.widget.LinearLayoutManager;
++import android.support.v7.widget.RecyclerView;
++import android.util.Log;
++import android.view.View;
++import android.widget.Button;
++import android.widget.TextView;
++
++import java.util.ArrayList;
++
++import Adapters.FiveAdapter;
++
++/**
++ * Created by whq on 2017/8/30.
++ */
++
++public class FiveActivity extends Activity {
++    RecyclerView rcv_fivie;
++    Button btn_select, btn_delect;
++    TextView tv_select;
++    ArrayList<String> listdata = new ArrayList<>();
++    FiveAdapter adapter;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_five);
++        initview();
++        initData();
++        registListener();
++
++    }
++
++    private void initview() {
++        rcv_fivie = (RecyclerView) findViewById(R.id.rcv_fivie);
++        tv_select = (TextView) findViewById(R.id.tv_select);//已选XX个
++        btn_select = (Button) findViewById(R.id.btn_select);//全选
++        btn_delect = (Button) findViewById(R.id.btn_delect);//全删
++    }
++
++    private void initData() {
++        for (int i = 0; i < 10; i++) {
++            listdata.add("" + i);
++        }
++        LinearLayoutManager manager = new LinearLayoutManager(this);
++        manager.setOrientation(LinearLayoutManager.VERTICAL);
++        rcv_fivie.setLayoutManager(manager);
++        adapter = new FiveAdapter(this, listdata);
++        rcv_fivie.setAdapter(adapter);
++    }
++
++    private void registListener() {
++        btn_delect.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                adapter.remove();
++                Log.d("whq","--------activity"+listdata.size());
++            }
++        });
++    }
++
++
++}
+Index: app/src/main/res/layout/activity_five.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_five.xml	(revision )
++++ app/src/main/res/layout/activity_five.xml	(revision )
+@@ -0,0 +1,47 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++    <android.support.v7.widget.RecyclerView
++        android:id="@+id/rcv_fivie"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:paddingBottom="40dp"/>
++
++    <LinearLayout
++        android:id="@+id/ll_bottom"
++        android:layout_width="match_parent"
++        android:layout_height="40dp"
++        android:layout_alignParentBottom="true"
++        android:layout_marginLeft="8dp"
++        android:orientation="horizontal">
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="8dp"
++            android:text="已选:   " />
++
++        <TextView
++            android:id="@+id/tv_select"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="0" />
++
++        <Button
++            android:id="@+id/btn_select"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="30dp"
++            android:text="全选 " />
++
++        <Button
++            android:id="@+id/btn_delect"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="20dp"
++            android:text="删除" />
++    </LinearLayout>
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/Beans/Fruits.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/Beans/Fruits.java	(revision )
++++ app/src/main/java/Beans/Fruits.java	(revision )
+@@ -0,0 +1,24 @@
++package Beans;
++
++import android.widget.TextView;
++
++/**
++ * Created by whq on 2017/8/15.
++ */
++
++public class Fruits {
++    private String name;
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public Fruits(String name) {
++
++        this.name = name;
++    }
++}
+Index: app/src/main/java/com/example/user/mydemo/FourActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/user/mydemo/FourActivity.java	(revision )
++++ app/src/main/java/com/example/user/mydemo/FourActivity.java	(revision )
+@@ -0,0 +1,41 @@
++package com.example.user.mydemo;
++
++import android.app.Activity;
++import android.os.Bundle;
++import android.support.v7.widget.LinearLayoutManager;
++import android.support.v7.widget.RecyclerView;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import Adapters.TextAdapter;
++import Beans.Fruits;
++
++/**
++ * Created by whq on 2017/8/15.
++ */
++
++public class FourActivity extends Activity {
++
++    private List<Fruits> list = new ArrayList<>();
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_four);
++        initData();
++        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.ry_four);
++
++        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
++        recyclerView.setLayoutManager(linearLayoutManager);
++
++        TextAdapter adapter = new TextAdapter(list);
++        recyclerView.setAdapter(adapter);
++    }
++
++    private void initData() {
++        for(int i=0; i<200; i++){
++            list.add(new Fruits("苹果"+i));
++        }
++    }
++}
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision 4f645c60f05f5fc37e21ba51b43d44fd9498c306)
++++ app/src/main/res/values/colors.xml	(revision )
+@@ -6,4 +6,5 @@
+     <color name="btn_bg">#f88</color>
+     <color name="btn_stroke">#bbbbbb</color>
+     <color name="btn_normal">#ffffff</color>
++    <color name="white">#ffffffff</color>
+ </resources>
+Index: app/src/main/java/Adapters/TextAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/Adapters/TextAdapter.java	(revision )
++++ app/src/main/java/Adapters/TextAdapter.java	(revision )
+@@ -0,0 +1,73 @@
++package Adapters;
++
++import android.support.v7.widget.RecyclerView;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.TextView;
++import android.widget.Toast;
++
++import com.example.user.mydemo.R;
++
++import java.util.List;
++
++import Beans.Fruits;
++
++/**
++ * Created by whq on 2017/8/15.
++ */
++
++public class TextAdapter extends RecyclerView.Adapter<TextAdapter.ViewHoler> {
++
++    private List<Fruits> mFruitList;
++
++    static class ViewHoler extends RecyclerView.ViewHolder{
++
++        TextView fruitname;
++        View fruit;
++
++        public ViewHoler(View itemView) {
++            super(itemView);
++          /*  fruitname = (TextView) itemView.findViewById(R.id.tv_item);
++            fruit = itemView;*/
++
++
++        }
++    }
++    @Override
++    public ViewHoler onCreateViewHolder(final ViewGroup parent, int viewType) {
++       /* View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.text_item,parent,false);
++        final ViewHoler holer = new ViewHoler(view);
++        holer.fruitname.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Toast.makeText(v.getContext(),"点击了第"+mFruitList.get(holer.getAdapterPosition()).getName()+"个",Toast.LENGTH_LONG).show();
++            }
++        });
++        holer.fruit.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Toast.makeText(v.getContext(),"点击了第"+mFruitList.get(holer.getAdapterPosition()).getName()+"个View",Toast.LENGTH_LONG).show();
++            }
++        });*/
++        return null;
++    }
++
++    public TextAdapter(List<Fruits> mFruitList) {
++        this.mFruitList = mFruitList;
++    }
++
++    @Override
++    public void onBindViewHolder(ViewHoler holder, int position) {
++        Fruits fruits = mFruitList.get(position);
++        holder.fruitname.setText(fruits.getName());
++    }
++
++
++    @Override
++    public int getItemCount() {
++        return mFruitList.size();
++    }
++
++
++}
+Index: app/src/main/java/com/example/user/mydemo/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/user/mydemo/MainActivity.java	(revision 4f645c60f05f5fc37e21ba51b43d44fd9498c306)
++++ app/src/main/java/com/example/user/mydemo/MainActivity.java	(revision )
+@@ -4,7 +4,10 @@
+ import android.content.Context;
+ import android.content.Intent;
+ import android.os.Bundle;
++import android.util.Log;
+ import android.view.KeyEvent;
++import android.view.Menu;
++import android.view.MenuItem;
+ import android.view.MotionEvent;
+ import android.view.View;
+ import android.view.inputmethod.InputMethodManager;
+@@ -12,6 +15,7 @@
+ import android.widget.Button;
+ import android.widget.EditText;
+ import android.widget.ListView;
++import android.widget.Toast;
+ 
+ import java.util.ArrayList;
+ 
+@@ -31,6 +35,9 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
++        if(savedInstanceState != null){
++            Log.d("whq", "onCreate: "+savedInstanceState.getString("data_key"));
++        }
+         initView();
+         initData();
+         onClickListener();
+@@ -68,7 +75,7 @@
+         btn_main.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+-                startActivity(new Intent(MainActivity.this, SecondActivity.class));
++                startActivity(new Intent(MainActivity.this, FiveActivity.class));
+             }
+         });
+     }
+@@ -129,5 +136,44 @@
+             }
+         }
+         return false;
++    }
++
++    /* 添加菜单
++   @Override
++    public boolean onCreateOptionsMenu(Menu menu) {
++        getMenuInflater().inflate(R.menu.main, menu);
++        return true;
++    }
++
++    @Override
++    public boolean onOptionsItemSelected(MenuItem item) {
++        switch (item.getItemId()){
++            case R.id.add_item:
++                Toast.makeText(MainActivity.this,"添加菜单",Toast.LENGTH_LONG).show();
++                break;
++            case R.id.remove_item:
++                Toast.makeText(MainActivity.this."删除菜单", Toast.LENGTH_LONG).show();
++                break;
++            default:
++                break;
++        }
++        return true;
++    }*/
++    /**
++     * 物理返回按钮点击事件
++     */
++    @Override
++    public void onBackPressed() {
++        super.onBackPressed();
++    }
++
++    /**
++     * 保存临时数据
++     */
++    @Override
++    protected void onSaveInstanceState(Bundle outState) {
++        super.onSaveInstanceState(outState);
++        String s = "11111";
++        outState.putString("data_key",s);
+     }
+ }
+Index: app/src/main/res/menu/main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/menu/main.xml	(revision )
++++ app/src/main/res/menu/main.xml	(revision )
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<menu xmlns:android="http://schemas.android.com/apk/res/android">
++    <item
++        android:id="@+id/add_item"
++        android:title="Add" />
++    <item
++        android:id="@+id/remove_item"
++        android:title="Remove" />
++</menu>
+\ No newline at end of file
