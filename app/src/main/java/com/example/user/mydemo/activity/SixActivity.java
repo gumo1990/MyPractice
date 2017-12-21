@@ -23,7 +23,6 @@ public class SixActivity extends BaseActivity implements View.OnClickListener,Co
         super.onCreate(savedInstanceState);
         setView(R.layout.activity_six,1);
         initView();
-
     }
 
     private void initView() {
