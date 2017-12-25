@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="400dp"
-    android:background="@drawable/jianbian"/>
-    <TextView
-        android:id="@+id/tv_five"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="hhhhh" />
-
-    <TextView
-        android:id="@+id/tv_five2"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="3333333" />
-
-    <Button
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="loadIamge"
-        android:text="Load Image" />
+        android:orientation="vertical"
+        android:visibility="visible">
 
-    <ImageView
-        android:id="@+id/five_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/jianbian" />
+
+        <TextView
+            android:id="@+id/tv_five"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="hhhhh" />
+
+        <TextView
+            android:id="@+id/tv_five2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="3333333" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="loadIamge"
+            android:text="Load Image" />
+
+        <ImageView
+            android:id="@+id/five_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

@@ -6,11 +6,15 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -80,6 +84,7 @@ public class FiveActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_five);
         unbinder = ButterKnife.bind(this);//绑定注解
+        setImmerseLayout(findViewById(R.id.ic_bar),true);
         initView();
 
     }
@@ -130,7 +135,6 @@ public class FiveActivity extends BaseActivity implements View.OnClickListener {
                 }
             }
         }).start();
-
 
 
     }

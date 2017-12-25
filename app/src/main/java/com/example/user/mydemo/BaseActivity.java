@@ -2,8 +2,18 @@ package com.example.user.mydemo;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
+import com.example.user.mydemo.utils.ScreenUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -12,7 +22,7 @@ import butterknife.Unbinder;
  * Created by whq on 2017/9/27.
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends FragmentActivity {
 
     protected Context mContext;
 
@@ -83,6 +93,30 @@ public class BaseActivity extends Activity {
             unbinder.unbind();//取消绑定
         }else{
             Log.d("whq","111111");
+        }
+    }
+
+    /**
+     * 设置沉浸式样式
+     * type=ture---有标题栏
+     * @param view
+     */
+    protected void setImmerseLayout(View view, boolean type) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+              /*  window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);*/
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            if(type){
+                int statusBarHeight = ScreenUtil.getStatusBarHeight(this.getBaseContext());
+
+                ViewGroup.LayoutParams lp=(ViewGroup.LayoutParams)view.getLayoutParams();
+                lp.height+=statusBarHeight;
+                view.setLayoutParams(lp);
+                view.setPadding(0, statusBarHeight, 0, 0);//为了控件中的子控件位置不偏移
+            }
+
         }
     }
 }

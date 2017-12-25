@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    @OnClick({R.id.rb_one, R.id.tv_top_right, R.id.rb_second, R.id.rb_three})
+    @OnClick({R.id.rb_one, R.id.tv_top_right, R.id.rb_second, R.id.rb_three, R.id.rb_four})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -110,6 +110,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.tv_top_right:
                 startActivity(new Intent(mContext, SecondActivity.class));
+                break;
+            case R.id.rb_four:
+                startActivity(new Intent(mContext, EightActivity.class));
                 break;
             default:
                 break;
