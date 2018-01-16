@@ -84,9 +84,8 @@ public class FiveActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_five);
         unbinder = ButterKnife.bind(this);//绑定注解
-        setImmerseLayout(findViewById(R.id.ic_bar),true);
+    //    setImmerseLayout(findViewById(R.id.ic_bar),true);
         initView();
-
     }
 
     private void initView() {
