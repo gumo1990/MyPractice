@@ -18,6 +18,7 @@ import com.example.user.mydemo.BaseActivity;
 import com.example.user.mydemo.MyApplication;
 import com.example.user.mydemo.R;
 import com.example.user.mydemo.utils.StringUtils;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * 销毁时候要解绑
      * unbinder.unbind();
      */
-
+XRecyclerView xf;
 
     // 定义一个变量，来标识是否退出
     private static boolean isExit = false;
@@ -97,6 +98,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rb_one:
+
+
                 StringUtils.toast(mContext,"跳转第四页");
                 startActivity(new Intent(mContext,FourActivity.class));
                 break;
@@ -118,7 +121,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
-
     /**
      * 点击其他地方隐藏软键盘
      *
@@ -167,7 +169,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             MyApplication.getHandler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    isExit = true;
+                    isExit = false;
                 }
             }, 2000);
 
@@ -182,9 +184,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        String s = "11111";
+        String s = "22";
         outState.putString("data_key", s);
     }
-
 
 }
