@@ -35,6 +35,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder> {
        /* View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main_item,
                  parent, false);
         return new MyHolder(view);*/
+
         return new MyHolder(LayoutInflater.from(context).inflate(R.layout.activity_main_item
                 , parent, false));
     }
